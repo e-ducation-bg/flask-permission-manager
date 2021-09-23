@@ -1,5 +1,6 @@
 # import libraries
 import flask
+from flask_cors import CORS
 from models.models import db, Role
 import os
 from dotenv import load_dotenv
@@ -21,6 +22,8 @@ DB_PASS = os.getenv('DB_PASS')
 
 
 app = flask.Flask(__name__)
+cors = CORS(app, supports_credentials=True)
+
 
 @app.before_first_request
 def startup_project():
